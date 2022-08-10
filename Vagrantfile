@@ -66,6 +66,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "install-minikube.sh", privileged: false
   config.vm.provision "shell", path: "install-kafka.sh", privileged: false
 
+  config.vm.provision "file", source: "./update-kafka.sh", destination: "/home/vagrant/update-kafka.sh"
+
 #  config.trigger.after :up do |trigger|
 #    trigger.info = "Installing minikube and running it"
 #    trigger.run_remote = {path: "install-minikube.sh"}
